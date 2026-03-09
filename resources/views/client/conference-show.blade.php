@@ -2,21 +2,21 @@
 
 @section('content')
 
-<h2>Conference Details</h2>
+<h2>{{ __('messages.details') }}</h2>
 
 <div class="card">
     <div class="card-body">
 
         <p>
-            <strong>Title:</strong> {{ $conference['title'] }} <br>
-            <strong>Description:</strong> {{ $conference['description'] ?? 'No description available.' }} <br>
-            <strong>Date:</strong> {{ $conference['date'] }} <br>
-            <strong>Speaker:</strong> {{ $conference['speaker'] }} <br>
-            <strong>Address:</strong> {{ $conference['address'] }}
+            <strong>{{ __('messages.title') }}:</strong> {{ $conference['title'] }} <br>
+            <strong>{{ __('messages.description') }}:</strong> {{ $conference['description'] ?? 'No description available.' }} <br>
+            <strong>{{ __('messages.date') }}:</strong> {{ $conference['date'] }} <br>
+            <strong>{{ __('messages.speaker') }}:</strong> {{ $conference['speaker'] }} <br>
+            <strong>{{ __('messages.address') }}:</strong> {{ $conference['address'] }}
         </p>
 
         <a href="/client/conferences" class="btn btn-secondary">
-            Back to conferences
+            {{ __('messages.back_to_conferences') }}
         </a>
 
     </div>
@@ -24,7 +24,7 @@
 
 <hr>
 
-<h4>Register for this conference</h4>
+<h4>{{ __('messages.register_conference') }}</h4>
 
 @if(session('success'))
 <div class="alert alert-success">
@@ -37,17 +37,17 @@
     @csrf
 
     <div class="mb-3">
-        <label class="form-label">Name</label>
+        <label class="form-label">{{ __('messages.name') }}</label>
         <input type="text" class="form-control" name="name" required>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Email</label>
+        <label class="form-label">{{ __('messages.email') }}</label>
         <input type="email" class="form-control" name="email" required>
     </div>
 
     <button class="btn btn-primary">
-        Register
+        {{ __('messages.register') }}
     </button>
 
 </form>

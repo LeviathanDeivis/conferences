@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conference System</title>
+    <title>{{ __('messages.conference_system') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -11,7 +11,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="/">
-            Conference System
+            {{ __('messages.conference_system') }}
         </a>
 
         <div class="ms-auto text-white">
@@ -19,7 +19,7 @@
             Deividas Margis PIT-23-NL
 
             <button class="btn btn-secondary btn-sm ms-3" disabled>
-                Logout
+                {{ __('messages.logout') }}
             </button>
 
         </div>

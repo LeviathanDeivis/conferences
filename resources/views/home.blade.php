@@ -8,14 +8,14 @@
         <div class="card mb-3">
             <div class="card-body">
 
-                <h5 class="card-title">Client Portal</h5>
+                <h5 class="card-title">{{ __('messages.client_portal') }}</h5>
 
                 <p class="card-text">
-                    View conferences and register for events.
+                    {{ __('messages.client_card_text') }}
                 </p>
 
                 <a href="/client/conferences" class="btn btn-primary">
-                    Open Client Portal
+                    {{ __('messages.client_portal_open') }}
                 </a>
 
             </div>
@@ -27,14 +27,14 @@
         <div class="card mb-3">
             <div class="card-body">
 
-                <h5 class="card-title">Employee Portal</h5>
+                <h5 class="card-title">{{ __('messages.employee_portal') }}</h5>
 
                 <p class="card-text">
-                    View conferences and registered participants.
+                    {{ __('messages.employee_card_text') }}
                 </p>
 
                 <a href="/employee/conferences" class="btn btn-primary">
-                    Open Employee Portal
+                    {{ __('messages.employee_portal_open') }}
                 </a>
 
             </div>
@@ -46,14 +46,14 @@
         <div class="card mb-3">
             <div class="card-body">
 
-                <h5 class="card-title">Admin Panel</h5>
+                <h5 class="card-title">{{ __('messages.admin_portal') }}</h5>
 
                 <p class="card-text">
-                    Manage conferences and system users.
+                    {{ __('messages.admin_card_text') }}
                 </p>
 
                 <a href="/admin" class="btn btn-primary">
-                    Open Admin Panel
+                    {{ __('messages.admin_portal_open') }}
                 </a>
 
             </div>

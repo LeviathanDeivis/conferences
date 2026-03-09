@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2>Client - Conferences</h2>
+<h2>{{ __('messages.client_conferences') }}</h2>
 
 <div class="row">
 
@@ -12,12 +12,12 @@
 
                 <h5 class="card-title">Cybersecurity Vilnius</h5>
                 <p class="card-text">
-                    Date: 2026-06-14 <br>
-                    Speaker: Johan Vogel
+                    {{ __('messages.date') }}: 2026-06-14 <br>
+                    {{ __('messages.speaker') }}: Johan Vogel
                 </p>
 
                 <a href="/client/conference/1" class="btn btn-primary">
-                    View Details
+                    {{ __('messages.view_details') }}
                 </a>
 
             </div>
@@ -30,12 +30,12 @@
 
                 <h5 class="card-title">PHP Summit</h5>
                 <p class="card-text">
-                    Date: 2026-08-14 <br>
-                    Speaker: Lukas Vileika
+                    {{ __('messages.date') }}: 2026-08-14 <br>
+                    {{ __('messages.speaker') }}: Lukas Vileika
                 </p>
 
                 <a href="/client/conference/2" class="btn btn-primary">
-                    View Details
+                    {{ __('messages.view_details') }}
                 </a>
 
             </div>
