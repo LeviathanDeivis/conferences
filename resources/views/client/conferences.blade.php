@@ -24,6 +24,24 @@
         </div>
     </div>
 
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+
+                <h5 class="card-title">PHP Summit</h5>
+                <p class="card-text">
+                    Date: 2026-08-14 <br>
+                    Speaker: Lukas Vileika
+                </p>
+
+                <a href="/client/conference/2" class="btn btn-primary">
+                    View Details
+                </a>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
 @endsection

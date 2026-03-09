@@ -9,29 +9,41 @@
 
 <div class="card">
     <div class="card-body">
-
-        <h4>Conference ID: {{ $id }}</h4>
-
-        <p>
-            Title: Cybersecurity VIlnius <br>
-            Date: 2026-06-14 <br>
-            Speaker: Johan Vogel <br>
-            Address: Litexpo
-        </p>
-
-        <h5>Registered Clients</h5>
-
-        <ul>
-            <li>Agne Vitulske</li>
-            <li>Deivis Petrauskas</li>
-            <li>Jonas Kazakevicius</li>
-        </ul>
-
-        <a href="/employee/conferences" class="btn btn-secondary">
-            Back to conferences
-        </a>
-
+    <p>
+    <strong>ID:</strong> {{ $id }} <br>
+    <strong>Title:</strong> {{ $conference['title'] }} <br>
+    <strong>Description:</strong> {{ $conference['description'] ?? 'No description available.' }} <br>
+    <strong>Date:</strong> {{ $conference['date'] }} <br>
+    <strong>Speaker:</strong> {{ $conference['speaker'] }} <br>
+    <strong>Address:</strong> {{ $conference['address'] }}
+    </p>
     </div>
 </div>
+
+<hr>
+
+<h4>Registered Clients</h4>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    @foreach ($users as $user)
+        <tr>
+            <td>{{ $user['name'] }}</td>
+            <td>{{ $user['email'] }}</td>
+        </tr>
+    @endforeach
+
+    </tbody>
+
+</table>
 
 @endsection

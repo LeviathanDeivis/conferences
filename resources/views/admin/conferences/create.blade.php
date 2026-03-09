@@ -10,7 +10,8 @@
 <div class="card">
     <div class="card-body">
 
-        <form method="POST" action="#">
+        <form method="POST" action="/admin/conferences">
+            @csrf
 
             @include('admin.conferences.form')
 

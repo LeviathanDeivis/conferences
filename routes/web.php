@@ -12,6 +12,7 @@ Route::get('/', function () {
 
 Route::get('/client/conferences', [ClientController::class, 'index']);
 Route::get('/client/conference/{id}', [ClientController::class, 'show']);
+Route::post('/client/conference/{id}/register', [ClientController::class, 'register']);
 
 Route::get('/employee/conferences', [EmployeeController::class, 'index']);
 Route::get('/employee/conference/{id}', [EmployeeController::class, 'show']);
@@ -21,3 +22,5 @@ Route::get('/admin/users', [UserController::class, 'index']);
 Route::get('/admin/users/{id}/edit', [UserController::class, 'edit']);
 Route::get('/admin/conferences', [ConferenceController::class, 'index']);
 Route::get('/admin/conferences/create', [ConferenceController::class, 'create']);
+Route::get('/admin/conferences/{id}/edit', [ConferenceController::class, 'edit']);
+Route::post('/admin/conferences/{id}/delete', [ConferenceController::class, 'destroy']);

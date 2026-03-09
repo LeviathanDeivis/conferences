@@ -21,29 +21,22 @@
 
     <tbody>
 
-        <tr>
-            <td>1</td>
-            <td>Petras</td>
-            <td>Kazlauskas</td>
-            <td>petras.kaz@gmail.com</td>
-            <td>
-                <a href="/admin/users/1/edit" class="btn btn-sm btn-primary">
-                    Edit
-                </a>
-            </td>
-        </tr>
+        @foreach ($users as $id => $user)
 
-        <tr>
-            <td>2</td>
-            <td>Agne</td>
-            <td>Cvetkovic</td>
-            <td>a.cvetkovic@gmail.com</td>
-            <td>
-                <a href="/admin/users/2/edit" class="btn btn-sm btn-primary">
-                    Edit
-                </a>
-            </td>
-        </tr>
+<tr>
+    <td>{{ $id }}</td>
+    <td>{{ $user['name'] }}</td>
+    <td>{{ $user['surname'] }}</td>
+    <td>{{ $user['email'] }}</td>
+    <td>
+        <a href="/admin/users/{{ $id }}/edit" class="btn btn-sm btn-primary">
+            Edit
+        </a>
+    </td>
+</tr>
+
+@endforeach
+
 
     </tbody>
 

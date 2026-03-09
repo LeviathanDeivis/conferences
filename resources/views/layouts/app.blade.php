@@ -7,8 +7,24 @@
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark px-3">
-    <span class="navbar-brand">Conference System</span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="/">
+            Conference System
+        </a>
+
+        <div class="ms-auto text-white">
+
+            Deividas Margis PIT-23-NL
+
+            <button class="btn btn-secondary btn-sm ms-3" disabled>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
 </nav>
 
 <div class="container mt-4">

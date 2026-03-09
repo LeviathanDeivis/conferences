@@ -10,12 +10,45 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('admin.users.index');
+        $users = [
+            1 => [
+                'name' => 'Petras',
+                'surname' => 'Kazlauskas',
+                'email' => 'petras.kaz@gmail.com'
+            ],
+            2 => [
+                'name' => 'Agne',
+                'surname' => 'Cvetkovic',
+                'email' => 'a.cvetkovic@gmail.com'
+            ]
+        ];
+
+        return view('admin.users.index', [
+            'users' => $users
+        ]);
     }
 
     public function edit($id)
     {
-        return view('admin.users.edit', ['id' => $id]);
+        $users = [
+            1 => [
+                'name' => 'Petras',
+                'surname' => 'Kazlauskas',
+                'email' => 'petras.kaz@gmail.com'
+            ],
+            2 => [
+                'name' => 'Agne',
+                'surname' => 'Cvetkovic',
+                'email' => 'a.cvetkovic@gmail.com'
+            ]
+        ];
+
+        $user = $users[$id] ?? null;
+
+        return view('admin.users.edit', [
+            'user' => $user,
+            'id' => $id
+        ]);
     }
 
 }

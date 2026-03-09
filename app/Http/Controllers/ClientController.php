@@ -13,6 +13,33 @@ class ClientController extends Controller
 
 public function show($id)
 {
-    return view('client.conference-show', ['id' => $id]);
+    $conferences = [
+        1 => [
+            'title' => 'Cybersecurity Vilnius',
+            'description' => 'Biggest CyberSecurity event this year in Baltic States',
+            'speaker' => 'Johan Vogel',
+            'date' => '2026-06-14',
+            'address' => 'Litexpo'
+        ],
+        2 => [
+            'title' => 'PHP Summit',
+            'description' => 'Conference for PHP developers',
+            'speaker' => 'Lukas Vileika',
+            'date' => '2026-08-10',
+            'address' => 'Litexpo'
+        ]
+    ];
+
+    $conference = $conferences[$id] ?? null;
+
+    return view('client.conference-show', [
+    'conference' => $conference,
+    'id' => $id
+]);
+}
+public function register(Request $request, $id)
+{
+    return redirect('/client/conference/'.$id)
+        ->with('success', 'You have successfully registered for the conference.');
 }
 }

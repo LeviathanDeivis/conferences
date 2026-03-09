@@ -14,17 +14,17 @@
 
             <div class="mb-3">
                 <label class="form-label">Name</label>
-                <input type="text" class="form-control" value="John">
+                <input type="text" class="form-control" name="name" value="{{ $user['name'] }}">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Surname</label>
-                <input type="text" class="form-control" value="Smith">
+                <input type="text" class="form-control" name="surname" value="{{ $user['surname'] }}">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" value="john@example.com">
+                <input type="email" class="form-control" name="email" value="{{ $user['email'] }}">
             </div>
 
             <button class="btn btn-success">
