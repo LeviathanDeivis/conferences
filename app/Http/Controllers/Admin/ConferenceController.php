@@ -16,4 +16,9 @@ public function index()
 {
     return view('admin.conferences.index');
 }
+
+public function create()
+{
+    return view('admin.conferences.create');
+}
 }

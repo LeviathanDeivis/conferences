@@ -18,4 +18,6 @@ Route::get('/employee/conference/{id}', [EmployeeController::class, 'show']);
 
 Route::get('/admin', [ConferenceController::class, 'adminHome']);
 Route::get('/admin/users', [UserController::class, 'index']);
+Route::get('/admin/users/{id}/edit', [UserController::class, 'edit']);
 Route::get('/admin/conferences', [ConferenceController::class, 'index']);
+Route::get('/admin/conferences/create', [ConferenceController::class, 'create']);
