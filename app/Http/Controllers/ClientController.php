@@ -3,43 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Conference;
 
 class ClientController extends Controller
 {
     public function index()
-{
-    return view('client.conferences');
-}
+    {
+        $conferences = Conference::all();
 
-public function show($id)
-{
-    $conferences = [
-        1 => [
-            'title' => 'Cybersecurity Vilnius',
-            'description' => 'Biggest CyberSecurity event this year in Baltic States',
-            'speaker' => 'Johan Vogel',
-            'date' => '2026-06-14',
-            'address' => 'Litexpo'
-        ],
-        2 => [
-            'title' => 'PHP Summit',
-            'description' => 'Conference for PHP developers',
-            'speaker' => 'Lukas Vileika',
-            'date' => '2026-08-10',
-            'address' => 'Litexpo'
-        ]
-    ];
+        return view('client.conferences', [
+            'conferences' => $conferences
+        ]);
+    }
 
-    $conference = $conferences[$id] ?? null;
+    public function show($id)
+    {
+        $conference = Conference::findOrFail($id);
 
-    return view('client.conference-show', [
-    'conference' => $conference,
-    'id' => $id
-]);
-}
-public function register(Request $request, $id)
-{
-    return redirect('/client/conference/'.$id)
-        ->with('success', 'You have successfully registered for the conference.');
-}
+        return view('client.conference-show', [
+            'conference' => $conference
+        ]);
+    }
+
+    public function register(Request $request, $id)
+    {
+        return redirect('/client/conference/'.$id)
+            ->with('success', 'You have successfully registered for the conference.');
+    }
 }

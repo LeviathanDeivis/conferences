@@ -6,42 +6,26 @@
 
 <div class="row">
 
+ @foreach($conferences as $conference)
     <div class="col-md-4">
         <div class="card mb-3">
             <div class="card-body">
 
-                <h5 class="card-title">Cybersecurity Vilnius</h5>
+                <h5 class="card-title">{{ $conference->title }}</h5>
+
                 <p class="card-text">
-                    {{ __('messages.date') }}: 2026-06-14 <br>
-                    {{ __('messages.speaker') }}: Johan Vogel
+                    Date: {{ $conference->date }} <br>
+                    Speaker: {{ $conference->speakers }}
                 </p>
 
-                <a href="/client/conference/1" class="btn btn-primary">
-                    {{ __('messages.view_details') }}
+                <a href="/client/conference/{{ $conference->id }}" class="btn btn-primary">
+                    View Details
                 </a>
 
             </div>
         </div>
     </div>
-
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-
-                <h5 class="card-title">PHP Summit</h5>
-                <p class="card-text">
-                    {{ __('messages.date') }}: 2026-08-14 <br>
-                    {{ __('messages.speaker') }}: Lukas Vileika
-                </p>
-
-                <a href="/client/conference/2" class="btn btn-primary">
-                    {{ __('messages.view_details') }}
-                </a>
-
-            </div>
-        </div>
-    </div>
-
+@endforeach
 </div>
 
 @endsection

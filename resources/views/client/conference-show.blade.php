@@ -8,11 +8,11 @@
     <div class="card-body">
 
         <p>
-            <strong>{{ __('messages.title') }}:</strong> {{ $conference['title'] }} <br>
-            <strong>{{ __('messages.description') }}:</strong> {{ $conference['description'] ?? 'No description available.' }} <br>
-            <strong>{{ __('messages.date') }}:</strong> {{ $conference['date'] }} <br>
-            <strong>{{ __('messages.speaker') }}:</strong> {{ $conference['speaker'] }} <br>
-            <strong>{{ __('messages.address') }}:</strong> {{ $conference['address'] }}
+            <strong>{{ __('messages.title') }}:</strong> {{ $conference->title }} <br>
+            <strong>{{ __('messages.description') }}:</strong> {{ $conference->description ?? 'No description available.' }} <br>
+            <strong>{{ __('messages.date') }}:</strong> {{ $conference->date }} <br>
+            <strong>{{ __('messages.speaker') }}:</strong> {{ $conference->speakers }} <br>
+            <strong>{{ __('messages.address') }}:</strong> {{ $conference->address }}
         </p>
 
         <a href="/client/conferences" class="btn btn-secondary">
@@ -32,7 +32,7 @@
 </div>
 @endif
 
-<form method="POST" action="/client/conference/{{ $id }}/register">
+<form method="POST" action="/client/conference/{{ $conference->id }}/register">
 
     @csrf
 
