@@ -10,45 +10,23 @@
 <h4>Conferences</h4>
 
 <div class="row">
+@foreach($conferences as $conference)
+    <div class="card mb-3">
+        <div class="card-body">
 
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
+            <h5>{{ $conference->title }}</h5>
 
-                <h5 class="card-title">Cybersecuirty Vilnius</h5>
-                <p class="card-text">
-                    ID: 1 <br>
-                    Date: 2026-06-14 <br>
-                    Speaker: Johan Vogel
-                </p>
+            <p>
+                Date: {{ $conference->date }} <br>
+                Speaker: {{ $conference->speakers }}
+            </p>
 
-                <a href="/employee/conference/1" class="btn btn-primary">
-                    View Conference
-                </a>
-
-            </div>
+            <a href="/employee/conference/{{ $conference->id }}" class="btn btn-primary">
+                View Details
+            </a>
         </div>
     </div>
-
-       <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-
-                <h5 class="card-title">PHP Summit</h5>
-                <p class="card-text">
-                    ID: 2 <br>
-                    Date: 2026-08-14 <br>
-                    Speaker: Lukas Vileika
-                </p>
-
-                <a href="/employee/conference/2" class="btn btn-primary">
-                    View Conference
-                </a>
-
-            </div>
-        </div>
-    </div>
-
+@endforeach
 </div>
 
 @endsection
