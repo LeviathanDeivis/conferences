@@ -10,10 +10,11 @@
 <div class="card">
     <div class="card-body">
 
-        <form method="POST" action="#">
-        @csrf
+    <form method="POST" action="/admin/conferences/{{ $conference->id }}">
+    @csrf
+    @method('PUT')
 
-         @include('admin.conferences.form')
+    @include('admin.conferences.form')
 
     <button class="btn btn-success">
         Update Conference

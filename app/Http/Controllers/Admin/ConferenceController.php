@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreConferenceRequest;
+use App\Models\Conference;
 
 class ConferenceController extends Controller
 {
@@ -15,7 +16,11 @@ class ConferenceController extends Controller
 
 public function index()
 {
-    return view('admin.conferences.index');
+    $conferences = Conference::all();
+
+    return view('admin.conferences.index', [
+        'conferences' => $conferences
+    ]);
 }
 
 public function create()
@@ -27,41 +32,35 @@ public function create()
 
 public function edit($id)
 {
-    $conferences = [
-        1 => [
-            'title' => 'Cybersecurity Vilnius',
-            'description' => 'Biggest CyberSecurity event this year in Baltic States',
-            'speakers' => 'Johan Vogel',
-            'date' => '2026-06-14',
-            'time' => '10:00',
-            'address' => 'Litexpo'
-        ],
-        2 => [
-            'title' => 'PHP Summit',
-            'description' => 'Conference for PHP developers',
-            'speakers' => 'Lukas Vileika',
-            'date' => '2026-08-10',
-            'time' => '11:00',
-            'address' => 'Litexpo'
-        ]
-    ];
-
-    $conference = $conferences[$id] ?? [];
+     $conference = Conference::findOrFail($id);
 
     return view('admin.conferences.edit', [
-        'conference' => $conference,
-        'id' => $id
+        'conference' => $conference
     ]);
 }
 
 public function store(StoreConferenceRequest $request)
 {
+    Conference::create($request->validated());
+
     return redirect('/admin/conferences')
-        ->with('success', 'Conference created successfully.');
+        ->with('success', 'Conference created successfully.');h('success', 'Conference updated successfully.');
+}
+
+public function update(StoreConferenceRequest $request, $id)
+{
+    $conference = Conference::findOrFail($id);
+    $conference->update($request->validated());
+
+    return redirect('/admin/conferences')
+        ->with('success', 'Conference updated successfully.');
 }
 
 public function destroy($id)
 {
+     $conference = Conference::findOrFail($id);
+    $conference->delete();
+
     return redirect('/admin/conferences')
         ->with('success', 'Conference deleted successfully.');
 }

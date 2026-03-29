@@ -24,3 +24,7 @@ Route::get('/admin/conferences', [ConferenceController::class, 'index']);
 Route::get('/admin/conferences/create', [ConferenceController::class, 'create']);
 Route::get('/admin/conferences/{id}/edit', [ConferenceController::class, 'edit']);
 Route::post('/admin/conferences/{id}/delete', [ConferenceController::class, 'destroy']);
+
+Route::post('/admin/conferences', [ConferenceController::class, 'store']);
+Route::delete('/admin/conferences/{id}', [ConferenceController::class, 'destroy']);
+Route::put('/admin/conferences/{id}', [ConferenceController::class, 'update']);

@@ -24,80 +24,34 @@
 
     <tbody>
 
+    @foreach($conferences as $conference)
         <tr>
-            <td>1</td>
-            <td>Cybersecurity</td>
-            <td>2026-06-14</td>
-            <td>Johan Vogel</td>
+            <td>{{ $conference->id }}</td>
+            <td>{{ $conference->title }}</td>
+            <td>{{ $conference->date }}</td>
+            <td>{{ $conference->speakers }}</td>
+
             <td>
 
-                <a href="/admin/conferences/1/edit" class="btn btn-sm btn-primary">
+                <a href="/admin/conferences/{{ $conference->id }}/edit" class="btn btn-sm btn-primary">
                     {{ __('messages.edit') }}
                 </a>
 
-                <form method="POST" action="/admin/conferences/{{ $id ?? 1 }}/delete" style="display:inline;">
-                @csrf
-                <button class="btn btn-sm btn-danger delete-btn">
-                 {{ __('messages.delete') }}
-                </button>
-</form>
+                <form method="POST" action="/admin/conferences/{{ $conference->id }}" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        {{ __('messages.delete') }}
+                    </button>
+                </form>
 
             </td>
         </tr>
-
-        <tr>
-            <td>2</td>
-            <td>PHP Summit</td>
-            <td>2026-08-10</td>
-            <td>Lukas Vileika</td>
-            <td>
-
-                <a href="/admin/conferences/2/edit" class="btn btn-sm btn-primary">
-                    {{ __('messages.edit') }}
-                </a>
-
-               <form method="POST" action="/admin/conferences/{{ $id ?? 1 }}/delete" style="display:inline;">
-                @csrf
-               <button class="btn btn-sm btn-danger delete-btn">
-                  {{ __('messages.delete') }}
-            </button>
-</form>
-
-            </td>
-        </tr>
+    @endforeach
 
     </tbody>
 
 </table>
 
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-document.querySelectorAll('.delete-btn').forEach(button => {
-
-    button.addEventListener('click', function() {
-     console.log('Ar veikia')
-        Swal.fire({
-            title: 'Confirm',
-            text: "Are you sure you want to delete this conference?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            confirmButtonText: 'Delete'
-        }).then((result) => {
-
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Conference removed.',
-                    'success'
-                );
-            });         
-        });
-
-    });
-});
-</script>
-
 @endsection
-
