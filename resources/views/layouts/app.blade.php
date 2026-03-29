@@ -30,6 +30,6 @@
 <div class="container mt-4">
     @yield('content')
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

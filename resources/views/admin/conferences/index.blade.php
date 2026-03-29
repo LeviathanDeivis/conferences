@@ -72,10 +72,11 @@
 
 <script>
 
+document.addEventListener("DOMContentLoaded", function () {
 document.querySelectorAll('.delete-btn').forEach(button => {
 
     button.addEventListener('click', function() {
-
+     console.log('Ar veikia')
         Swal.fire({
             title: 'Confirm',
             text: "Are you sure you want to delete this conference?",
@@ -91,14 +92,11 @@ document.querySelectorAll('.delete-btn').forEach(button => {
                     'Conference removed.',
                     'success'
                 );
-            }
-
+            });         
         });
 
     });
-
 });
-
 </script>
 
 @endsection
