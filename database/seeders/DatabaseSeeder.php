@@ -15,11 +15,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+       \App\Models\Role::create(['name' => 'client']);
+       \App\Models\Role::create(['name' => 'employee']);
+       \App\Models\Role::create(['name' => 'admin']);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+       \App\Models\Conference::create([
+        'title' => 'Cybersecurity Vilnius',
+        'description' => 'Biggest cybersecurity event in Baltic States',
+        'speakers' => 'Johan Vogel',
+        'date' => '2026-06-14',
+        'time' => '10:00',
+        'address' => 'Litexpo'
+    ]);
+
+       \App\Models\Conference::create([
+        'title' => 'PHP Summit',
+        'description' => 'Conference for PHP developers',
+        'speakers' => 'Lukas Vileika',
+        'date' => '2026-08-10',
+        'time' => '11:00',
+        'address' => 'Litexpo'
+    ]);
     }
 }
