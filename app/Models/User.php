@@ -45,4 +45,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function hasRole($roleName)
+{
+    return \DB::table('users_roles')
+        ->join('roles', 'users_roles.role_id', '=', 'roles.id')
+        ->where('users_roles.user_id', $this->id)
+        ->where('roles.name', $roleName)
+        ->exists();
+}
 }

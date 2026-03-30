@@ -24,32 +24,39 @@
 
 <hr>
 
-<h4>{{ __('messages.register_conference') }}</h4>
+@auth
+<form method="POST" action="{{ url('/client/conference/' . $conference->id . '/register') }}">
+    @csrf
+    <button class="btn btn-success">Register</button>
+</form>
+@endauth
+
+@guest
+<a href="/login" class="btn btn-primary">Login to register</a>
+@endguest
 
 @if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: "{{ session('success') }}"
+        });
+    });
+</script>
 @endif
 
-<form method="POST" action="/client/conference/{{ $conference->id }}/register">
-
-    @csrf
-
-    <div class="mb-3">
-        <label class="form-label">{{ __('messages.name') }}</label>
-        <input type="text" class="form-control" name="name" required>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">{{ __('messages.email') }}</label>
-        <input type="email" class="form-control" name="email" required>
-    </div>
-
-    <button class="btn btn-primary">
-        {{ __('messages.register') }}
-    </button>
-
-</form>
+@if(session('error'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: "{{ session('error') }}"
+        });
+    });
+</script>
+@endif
 
 @endsection

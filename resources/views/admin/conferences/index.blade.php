@@ -6,9 +6,13 @@
 <p class="text-muted">{{ __('messages.conference_management') }}</p>
 <hr>
 
+@auth
+@if(Auth::user()->hasRole('admin'))
 <a href="/admin/conferences/create" class="btn btn-success mb-3">
     {{ __('messages.create_conference') }}
 </a>
+@endif
+@endauth
 
 <table class="table table-striped">
 
@@ -33,6 +37,9 @@
 
             <td>
 
+                @auth
+                @if(Auth::user()->hasRole('admin'))
+
                 <a href="/admin/conferences/{{ $conference->id }}/edit" class="btn btn-sm btn-primary">
                     {{ __('messages.edit') }}
                 </a>
@@ -45,6 +52,9 @@
                         {{ __('messages.delete') }}
                     </button>
                 </form>
+
+                @endif
+                @endauth
 
             </td>
         </tr>

@@ -21,22 +21,21 @@
 
     <tbody>
 
-        @foreach ($users as $id => $user)
+    @foreach ($users as $user)
 
 <tr>
-    <td>{{ $id }}</td>
-    <td>{{ $user['name'] }}</td>
-    <td>{{ $user['surname'] }}</td>
-    <td>{{ $user['email'] }}</td>
+    <td>{{ $user->id }}</td>
+    <td>{{ $user->name }}</td>
+    <td>{{ $user->surname ?? '-' }}</td>
+    <td>{{ $user->email }}</td>
     <td>
-        <a href="/admin/users/{{ $id }}/edit" class="btn btn-sm btn-primary">
+        <a href="/admin/users/{{ $user->id }}/edit" class="btn btn-sm btn-primary">
             Edit
         </a>
     </td>
 </tr>
 
 @endforeach
-
 
     </tbody>
 

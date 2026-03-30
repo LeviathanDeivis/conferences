@@ -11,11 +11,18 @@ class ConferenceController extends Controller
 {
     public function adminHome()
 {
+    if (!auth()->user()->hasRole('admin')) {
+    abort(403);
+}
     return view('admin.index');
 }
 
+
 public function index()
 {
+    if (!auth()->user()->hasRole('admin')) {
+    abort(403);
+}
     $conferences = Conference::all();
 
     return view('admin.conferences.index', [
@@ -25,6 +32,9 @@ public function index()
 
 public function create()
 {
+    if (!auth()->user()->hasRole('admin')) {
+    abort(403);
+}
     return view('admin.conferences.create', [
         'conference' => []
     ]);
@@ -32,6 +42,9 @@ public function create()
 
 public function edit($id)
 {
+    if (!auth()->user()->hasRole('admin')) {
+    abort(403);
+}
      $conference = Conference::findOrFail($id);
 
     return view('admin.conferences.edit', [
@@ -41,6 +54,9 @@ public function edit($id)
 
 public function store(StoreConferenceRequest $request)
 {
+    if (!auth()->user()->hasRole('admin')) {
+    abort(403);
+}
     Conference::create($request->validated());
 
     return redirect('/admin/conferences')
@@ -49,6 +65,9 @@ public function store(StoreConferenceRequest $request)
 
 public function update(StoreConferenceRequest $request, $id)
 {
+    if (!auth()->user()->hasRole('admin')) {
+    abort(403);
+}
     $conference = Conference::findOrFail($id);
     $conference->update($request->validated());
 
@@ -58,6 +77,9 @@ public function update(StoreConferenceRequest $request, $id)
 
 public function destroy($id)
 {
+    if (!auth()->user()->hasRole('admin')) {
+    abort(403);
+}
      $conference = Conference::findOrFail($id);
     $conference->delete();
 
